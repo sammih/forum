@@ -8,7 +8,7 @@
                 <div class="card-header">Threads</div>
                 @foreach($threads as $thread)
                     <div class="card-body">
-                        <p>{{ $thread->title }}</p>
+                        <p> <a href="{{ $thread->path() }}">{{ $thread->title }}</a> </p>
                         <div class="alert alert-success" role="alert">
                         {{ $thread->body }}
                         </div>
