@@ -9,10 +9,17 @@ class ThreadTest extends TestCase
     /*
      * @test
      */
-    public function testHasPath()
+    public function testThreadHasReplies()
     {
         $thread = factory('App\Thread')->create();
 
-        $this->assertEquals('/threads/'.$thread->id, $thread->path());
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $thread->replies);
+    }
+
+    public function testThreadHasCreator()
+    {
+        $thread = factory('App\Thread')->create();
+
+        $this->assertInstanceOf('App\User', $thread->creator);
     }
 }
